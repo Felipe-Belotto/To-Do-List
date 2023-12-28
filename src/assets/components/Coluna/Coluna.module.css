@@ -1,8 +1,8 @@
 /* Estilos para Coluna */
 
 .coluna {
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 350px;
+    min-height: 350px;
     background-color: white;
     color: black;
     border-radius: 4px;
@@ -12,12 +12,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
     background-color: rgba(0, 0, 0, 0.561);
-    padding: 4px;
     color: aliceblue;
     border-radius: 4px 4px 0 0;
     user-select: none;
+    padding: 0 0 0 8px;
 }
 
 .handle{

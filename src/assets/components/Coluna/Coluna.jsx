@@ -20,7 +20,7 @@ function Coluna(props) {
        </h2>
 
        <div className={styles.handle} onPointerDown={(e) => controls.start(e)}>
-        <DragIndicatorIcon style={{ fontSize: '32px' }}/>
+        <DragIndicatorIcon style={{ fontSize: '42px' }}/>
        </div>
       </div>
 
