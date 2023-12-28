@@ -9,12 +9,13 @@ import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 function Layout() {
   const [colunas, setColunas] = useState(['Tarefas']);
   const [novaColuna, setNovaColuna] = useState();
-  const [reorderAxis, setReorderAxis] = useState('x'); // Defina a orientação padrão como 'x'
+  const [reorderAxis, setReorderAxis] = useState('x');
+  const [maxColunas, setMaxColunas] = useState();
 
   useEffect(() => {
-    // Verifica o tamanho da tela e define a orientação do Reorder.Group
+
     const handleResize = () => {
-      const isMobile = window.innerWidth <= 768; 
+      const isMobile = window.innerWidth <= 768;
       setReorderAxis(isMobile ? 'y' : 'x');
     };
 
@@ -27,37 +28,74 @@ function Layout() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const largura = window.innerWidth;
+
+      if(largura > 768) {
+        const maximoColunas = Math.floor(largura / 300); 
+        setMaxColunas(maximoColunas);
+      } else {
+        setMaxColunas(5)
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   function adicionarNovaColuna() {
-    const colunasAntigas = [...colunas];
-    colunasAntigas.push(novaColuna);
-    setColunas(colunasAntigas);
+    if (novaColuna.trim() === "") {
+      alert("Preencha o nome da coluna");
+      return;
+    }
+  
+    if (maxColunas > colunas.length) {
+      if (colunas.includes(novaColuna)) {
+        alert('Já existe uma coluna com o mesmo nome');
+      } else {
+        const colunasAntigas = [...colunas];
+        colunasAntigas.push(novaColuna);
+        setColunas(colunasAntigas);
+      }
+    } else {
+      alert('Número máximo de colunas atingido');
+    }
   }
+  
 
   return (
     <section className={styles.container}>
+
+      <div className={styles.header}>
       <h1 className={styles.titulo}>To Do List</h1>
 
       <div style={{ display: 'flex', alignItems: 'end' }}>
-        <InputStyle titulo="Nova Coluna" value={novaColuna} onChange={(e) => setNovaColuna(e.target.value)} />
-        <IconButton aria-label="add to shopping cart" onClick={adicionarNovaColuna}>
-          <AddCircleSharpIcon style={{ color: 'ghostwhite' }} />
-        </IconButton>
+  <InputStyle titulo="Nova Coluna" value={novaColuna} onChange={(e) => setNovaColuna(e.target.value)} />
+  <IconButton aria-label="add to shopping cart" onClick={adicionarNovaColuna}>
+    <AddCircleSharpIcon style={{ color: 'ghostwhite' }} />
+  </IconButton>
       </div>
 
+        </div>
+
       <Reorder.Group
-  as="div"
-  axis={reorderAxis}
-  values={colunas}
-  onReorder={setColunas}
-  style={{
-    display: 'flex',
-    width: '100%',
-    gap: '16px',
-    listStyle: 'none',
-    flexWrap: 'wrap',
-    justifyContent: reorderAxis === 'y' ? 'center' : 'flex-start', 
-  }}
->
+        axis={reorderAxis}
+        values={colunas}
+        onReorder={setColunas}
+        style={{
+          display: 'flex',
+          listStyle: 'none',
+          flexDirection: reorderAxis === 'y' ? 'column' : 'row',
+          justifyContent: reorderAxis === 'y' ? 'center' : 'start',
+          padding:" 0 2%"
+        }}
+      >
         {colunas.map((item) => (
           <Coluna key={item} item={item} />
         ))}
