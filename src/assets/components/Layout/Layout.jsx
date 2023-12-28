@@ -85,7 +85,7 @@ function Layout() {
           listStyle: 'none',
           flexDirection: reorderAxis === 'y' ? 'column' : 'row',
           justifyContent: reorderAxis === 'y' ? 'center' : 'start',
-          padding:" 0 2%"
+          padding:" 2%"
         }}
       >
         {colunas.map((item) => (

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Coluna.module.css';
 import { Reorder, useDragControls } from "framer-motion"
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import Tarefa from '../Tarefa/Tarefa';
 
 function Coluna(props) {
   
@@ -23,6 +24,11 @@ function Coluna(props) {
         <DragIndicatorIcon style={{ fontSize: '42px' }}/>
        </div>
       </div>
+
+     
+        <Tarefa/>
+        <Tarefa/>
+     
 
     </section>
     

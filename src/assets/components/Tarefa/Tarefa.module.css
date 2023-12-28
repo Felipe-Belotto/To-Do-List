@@ -1,0 +1,19 @@
+/* Estilos para Tarefa */
+.tarefa {
+    height: 30px;
+    background-color: rgba(24, 24, 24, 0.316);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.botao {
+    opacity: 0%;
+    transition: 2s; 
+}
+
+.tarefa:hover .botao {
+    transition: 1s;
+    opacity: 100%;
+}
