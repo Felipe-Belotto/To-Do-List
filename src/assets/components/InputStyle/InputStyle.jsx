@@ -5,9 +5,7 @@ import { color } from 'framer-motion';
 
 function InputStyle(props) {
   return (
-    <TextField id={props.titulo} label={props.titulo} variant="standard" onChange={props.onChange} value={props.value}
-    InputLabelProps={{style: { color:"white"}}} 
-    inputProps={{style: { color:"white" }}}  />
+    <input id={props.titulo} label={props.titulo} variant="standard" onSubmit={props.onSubmit}  onChange={props.onChange} value={props.value} autoComplete='none' />
   );
 }
 

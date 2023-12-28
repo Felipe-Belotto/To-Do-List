@@ -74,14 +74,6 @@ function Layout() {
 
       <div className={styles.header}>
       <h1 className={styles.titulo}>To Do List</h1>
-
-      <div style={{ display: 'flex', alignItems: 'end' }}>
-  <InputStyle titulo="Nova Coluna" value={novaColuna} onChange={(e) => setNovaColuna(e.target.value)} />
-  <IconButton aria-label="add to shopping cart" onClick={adicionarNovaColuna}>
-    <AddCircleSharpIcon style={{ color: 'ghostwhite' }} />
-  </IconButton>
-      </div>
-
         </div>
 
       <Reorder.Group
@@ -99,7 +91,23 @@ function Layout() {
         {colunas.map((item) => (
           <Coluna key={item} item={item} />
         ))}
+
+  <div className={styles.nova__coluna} style={{display: maxColunas > colunas.length ? "flex": "none"}}>
+
+  <h3>Nova coluna</h3>
+      
+  <div style={{display:"flex", alignItems:"center"}}>
+
+   <InputStyle titulo="Nova Coluna" value={novaColuna} onSubmit={adicionarNovaColuna} onChange={(e) => setNovaColuna(e.target.value)} />
+
+    <Button onClick={adicionarNovaColuna} style={{display: "flex", height:"50px", backgroundColor:"#51515147", border:"none", borderRadius:"0 12px 12px 0", alignItems:"center"}}>
+    <AddCircleSharpIcon style={{ color: 'rgba(245, 245, 245, 0.703)'}} />
+    </Button>
+      </div>
+
+       </div>
       </Reorder.Group>
+     
     </section>
   );
 }
