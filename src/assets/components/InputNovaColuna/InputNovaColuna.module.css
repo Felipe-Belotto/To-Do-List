@@ -1,8 +1,8 @@
 /* Estilos para InputStyle */
 
-input {
+.input__coluna {
     width: calc(100% - 16px);
-    height: 50px;
+    height: 40px;
     background-color: #51515147;
     color: white;
     outline: none;
@@ -12,7 +12,7 @@ input {
     padding: 0 0 0 16px;
 }
 
-input:hover {
+.input__coluna:hover {
     background-color: #5d5d5d47;
     color: white;
 }

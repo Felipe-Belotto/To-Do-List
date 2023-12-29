@@ -3,7 +3,8 @@
 .coluna {
     width: 300px ;
     min-height: 300px;
-    background-color: white;
+    background-color: rgb(243, 243, 243);
+
     color: black;
     border-radius: 6px;
     border: 1px solid #242424;
@@ -23,6 +24,17 @@
 
 .handle{
     cursor: pointer;
+}
+
+.nova__tarefa{
+    display: flex;
+    width: 100%;
+    opacity: 40%;
+    transition: 0.5s;
+}
+
+.nova__tarefa:focus-within {
+    opacity: 100%;
 }
 
 @media screen and (max-width: 768px) {

@@ -3,6 +3,9 @@ import styles from './Coluna.module.css';
 import { Reorder, useDragControls } from "framer-motion"
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import Tarefa from '../Tarefa/Tarefa';
+import InputNovaTarefa from '../InputNovaTarefa/InputNovaTarefa';
+import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
+import { Button } from '@mui/material';
 
 function Coluna(props) {
   
@@ -25,10 +28,16 @@ function Coluna(props) {
        </div>
       </div>
 
-     
-        <Tarefa/>
-        <Tarefa/>
-     
+    
+    <div className={styles.nova__tarefa}>
+    <InputNovaTarefa />
+    <Button onClick={()=> {alert("ta funcionando")}} style={{display: "flex", height:"30px", backgroundColor:"#b3b3b347", border:"none", alignItems:"center", borderRadius:"0"}}>
+    <AddCircleSharpIcon style={{ color: 'darkgray', fontSize:"20px"}} />
+    </Button>
+    </div>
+
+ 
+
 
     </section>
     

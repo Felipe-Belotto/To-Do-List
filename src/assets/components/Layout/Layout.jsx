@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Layout.module.css';
 import { Reorder } from 'framer-motion';
 import Coluna from '../Coluna/Coluna';
-import InputStyle from '../InputStyle/InputStyle';
+import InputNovaColuna from '../InputNovaColuna/InputNovaColuna';
 import { Button, IconButton } from '@mui/material';
 import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 
@@ -98,9 +98,9 @@ function Layout() {
       
   <div style={{display:"flex", alignItems:"center"}}>
 
-   <InputStyle titulo="Nova Coluna" value={novaColuna} onSubmit={adicionarNovaColuna} onChange={(e) => setNovaColuna(e.target.value)} />
+   <InputNovaColuna titulo="Nova Coluna" value={novaColuna} onSubmit={adicionarNovaColuna} onChange={(e) => setNovaColuna(e.target.value)} />
 
-    <Button onClick={adicionarNovaColuna} style={{display: "flex", height:"50px", backgroundColor:"#51515147", border:"none", borderRadius:"0 12px 12px 0", alignItems:"center"}}>
+    <Button onClick={adicionarNovaColuna} style={{display: "flex", height:"40px", backgroundColor:"#51515147", border:"none", borderRadius:"0 12px 12px 0", alignItems:"center"}}>
     <AddCircleSharpIcon style={{ color: 'rgba(245, 245, 245, 0.703)'}} />
     </Button>
       </div>
