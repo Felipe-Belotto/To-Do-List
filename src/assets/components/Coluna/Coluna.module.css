@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 768px) {
     .coluna {
-        min-width: 100% ;
+        min-width: 95vw ;
         min-height: 200px;
         background-color: white;
         color: black;

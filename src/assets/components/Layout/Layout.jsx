@@ -105,7 +105,7 @@ function Layout() {
 
  <section  style={{display: maxColunas > colunas.length ? "flex": "none", justifyContent:"center", alignItems:"center"}}> 
 
-    <Button color='inherit' sx={{width:"300px", height:"100%", display: novaColunaDisplay ? "none" : "flex"}} onClick={() => setNovaColunaDisplay(!novaColunaDisplay)}>
+    <Button color='inherit' sx={{width:"100%", height:"100%", minHeight:"150px", display: novaColunaDisplay ? "none" : "flex"}} onClick={() => setNovaColunaDisplay(!novaColunaDisplay)}>
     <AddCircleSharpIcon fontSize='large'sx={{color:"#1a1a1a83"}} />
     </Button>
 
