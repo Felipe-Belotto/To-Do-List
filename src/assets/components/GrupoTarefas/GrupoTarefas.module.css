@@ -1,0 +1,62 @@
+/* Estilos para Layout */
+
+.container {
+    display: flex;
+    flex-direction: column;  
+    gap: 16px;
+}
+
+.titulo {   
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    margin: 0 1%;
+    padding: 0 16px;
+    background-color: rgba(0, 0, 0, 0.182);
+    height: 30px;
+    border-radius: 8px;
+}
+
+.nova__coluna {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    background-color: #44444412;
+    padding: 16px;
+    gap: 16px;
+    border-radius: 6px 12px 12px 6px;
+    font-weight: bold;
+    color: whitesmoke;
+    opacity: 100%;
+}
+
+
+.nova__coluna h3{
+    text-align: center;
+    color: #ffffffc8;
+    font-size: 20px;
+}
+
+.input__novaColuna{
+    justify-content: center ;
+     align-items: center ;
+     min-width: 300px;
+     min-height: 300px;
+}
+
+
+/* Celular */
+@media screen and (max-width: 1600px) {
+    .container {
+        padding: 4% 2%;
+    }
+}
+
+/* Celular */
+@media screen and (max-width: 768px) {
+    .container {
+        justify-content: start;
+    }
+}
