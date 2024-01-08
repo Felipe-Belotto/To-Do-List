@@ -3,7 +3,7 @@
 .input__coluna {
     width: calc(100% - 16px);
     height: 40px;
-    background-color: #51515147;
+    background-color: #b2b2b214;
     color: white;
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.18);
@@ -13,6 +13,6 @@
 }
 
 .input__coluna:hover {
-    background-color: #5d5d5d47;
+    background-color: #5d5d5d28;
     color: white;
 }

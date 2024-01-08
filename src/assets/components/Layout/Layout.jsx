@@ -5,12 +5,14 @@ import Coluna from '../Coluna/Coluna';
 import InputNovaColuna from '../InputNovaColuna/InputNovaColuna';
 import { Button, IconButton } from '@mui/material';
 import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
+import AddIcon from '@mui/icons-material/Add';
 
 function Layout() {
   const [colunas, setColunas] = useState(['Tarefas']);
   const [novaColuna, setNovaColuna] = useState();
   const [reorderAxis, setReorderAxis] = useState('x');
-  const [maxColunas, setMaxColunas] = useState();
+  const [maxColunas, setMaxColunas] = useState(); 
+  const [novaColunaDisplay, setNovaColunaDisplay] = useState(false); 
 
   useEffect(() => {
 
@@ -54,6 +56,11 @@ function Layout() {
       alert("Preencha o nome da coluna");
       return;
     }
+
+    function deletarColuna(nome) {
+      const novaListaColunas = colunas.filter((coluna) => coluna !== nome);
+      setColunas(novaListaColunas);
+    }
   
     if (maxColunas > colunas.length) {
       if (colunas.includes(novaColuna)) {
@@ -62,6 +69,8 @@ function Layout() {
         const colunasAntigas = [...colunas];
         colunasAntigas.push(novaColuna);
         setColunas(colunasAntigas);
+        setNovaColunaDisplay(!novaColunaDisplay)
+        setNovaColuna("")
       }
     } else {
       alert('Número máximo de colunas atingido');
@@ -73,8 +82,10 @@ function Layout() {
     <section className={styles.container}>
 
       <div className={styles.header}>
+        
       <h1 className={styles.titulo}>To Do List</h1>
-        </div>
+      
+      </div>
 
       <Reorder.Group
         axis={reorderAxis}
@@ -85,27 +96,34 @@ function Layout() {
           listStyle: 'none',
           flexDirection: reorderAxis === 'y' ? 'column' : 'row',
           justifyContent: reorderAxis === 'y' ? 'center' : 'start',
-          padding:" 2%"
+          padding:" 2%",
         }}
       >
         {colunas.map((item) => (
-          <Coluna key={item} item={item} />
+          <Coluna key={item} item={item} onDeletarColuna={() => deletarColuna(item)} />
         ))}
 
-  <div className={styles.nova__coluna} style={{display: maxColunas > colunas.length ? "flex": "none"}}>
+ <section  style={{display: maxColunas > colunas.length ? "flex": "none", justifyContent:"center", alignItems:"center"}}> 
 
+    <Button color='inherit' sx={{width:"300px", height:"100%", display: novaColunaDisplay ? "none" : "flex"}} onClick={() => setNovaColunaDisplay(!novaColunaDisplay)}>
+    <AddCircleSharpIcon fontSize='large'sx={{color:"#1a1a1a83"}} />
+    </Button>
+
+  <div className={styles.nova__coluna} style={{display: novaColunaDisplay ? "flex" : "none"}}>
   <h3>Nova coluna</h3>
       
   <div style={{display:"flex", alignItems:"center"}}>
 
    <InputNovaColuna titulo="Nova Coluna" value={novaColuna} onSubmit={adicionarNovaColuna} onChange={(e) => setNovaColuna(e.target.value)} />
 
-    <Button onClick={adicionarNovaColuna} style={{display: "flex", height:"40px", backgroundColor:"#51515147", border:"none", borderRadius:"0 12px 12px 0", alignItems:"center"}}>
+    <Button color="inherit" onClick={adicionarNovaColuna} style={{display: "flex", height:"40px", backgroundColor:"#51515147", border:"none", borderRadius:"0 12px 12px 0", alignItems:"center"}}>
     <AddCircleSharpIcon style={{ color: 'rgba(245, 245, 245, 0.703)'}} />
     </Button>
-      </div>
+    </div>
+   </div>
+    
+    </section>
 
-       </div>
       </Reorder.Group>
      
     </section>

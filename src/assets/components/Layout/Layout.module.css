@@ -12,12 +12,13 @@
     flex-direction: column;
     gap: 16px;
     padding: 5% 2%;
-    background-color: #312d2d4d;
+    background-color: #f8f8ff;
 }
 
 .titulo {
     font-size: 32px;
-  
+    color: rgb(255, 255, 255);
+    color: black;
 }
 
 .nova__coluna {
@@ -31,20 +32,15 @@
     border-radius: 6px 12px 12px 6px;
     font-weight: bold;
     color: whitesmoke;
-    opacity: 10%;
-    transition: 0.5s;
-    margin: 0 20px;
-}
-
-.nova__coluna:focus-within {
     opacity: 100%;
+    margin: 0 20px;
 }
 
 
 .nova__coluna h3{
-    font-size: 24px;
-    font-weight: bold;
-    font-style: italic;
+    text-align: center;
+    color: #ffffffc8;
+    font-size: 20px;
 }
 
 
