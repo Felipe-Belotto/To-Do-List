@@ -7,7 +7,7 @@ function Layout() {
   return (
     <div className={styles.layout} >
       <Header/>
-      <GrupoTarefas nome="Teste" />
+      <GrupoTarefas nome="Principal" />
     </div>
   );
 }

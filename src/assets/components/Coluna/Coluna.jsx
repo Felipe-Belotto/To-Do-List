@@ -16,7 +16,10 @@ function Coluna(props) {
   const [novaTarefa, setNovaTarefa] = useState("")
 
   function adicionaTarefa() {
-    if (!listaTarefas.some(tarefa => tarefa.nome === novaTarefa)) {
+    
+    novaTarefa != "" ? "" : alert("Digite o titulo da tarefa")
+
+    if(!listaTarefas.some(tarefa => tarefa.nome === novaTarefa)) {
       setListaTarefas((novaLista) => [...novaLista, { nome: novaTarefa, status: false }]);
       setNovaTarefa("");
     } else {
@@ -44,11 +47,10 @@ function Coluna(props) {
       return novaLista;
     });
   }
-  
-  
-  useEffect(() => {
-    console.log(listaTarefas);
-  }, [listaTarefas]);
+
+  useEffect(()=>{
+    console.log(listaTarefas)
+  }),[listaTarefas]
   
   return (
     <Reorder.Item key={props.item} value={props.item} dragListener={false} dragControls={controls}>
@@ -66,7 +68,15 @@ function Coluna(props) {
           </Button>
         </div>
         {listaTarefas.map((tarefa, index) => (
-          <Tarefa key={index} nome={tarefa.nome} status={tarefa.status} onAlterarStatus={() => alterarStatus(tarefa.nome)} onDelete={() => deletaTarefa(index)} />
+          <Tarefa key={index} 
+          
+          nome={tarefa.nome} 
+
+          status={tarefa.status} 
+          
+          onAlterarStatus={() => alterarStatus(tarefa.nome)} 
+
+          onDelete={() => deletaTarefa(index)} />
         ))}
       </section>
     </Reorder.Item>

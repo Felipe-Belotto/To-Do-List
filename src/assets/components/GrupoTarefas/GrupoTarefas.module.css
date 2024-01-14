@@ -11,11 +11,12 @@
     align-items: center;
     font-size: 16px;
     color: rgb(255, 255, 255);
-    margin: 0 1%;
+    margin: 0 0.5%;
     padding: 0 16px;
-    background-color: rgba(0, 0, 0, 0.182);
-    height: 30px;
-    border-radius: 8px;
+    /* background-color: rgba(0, 0, 0, 0.494); */
+    background-color: rgba(54, 0, 251, 0.614);
+    height: 40px;
+    border-radius: 4px;
 }
 
 .nova__coluna {
@@ -23,19 +24,18 @@
     justify-content: center;
     align-items: center;
     width: 300px;
-    background-color: #44444412;
+    background-color: #14141442;
     padding: 16px;
     gap: 16px;
-    border-radius: 6px 12px 12px 6px;
+    border-radius: 12px;
     font-weight: bold;
-    color: whitesmoke;
+    color: white;
     opacity: 100%;
 }
 
 
 .nova__coluna h3{
     text-align: center;
-    color: #ffffffc8;
     font-size: 20px;
 }
 

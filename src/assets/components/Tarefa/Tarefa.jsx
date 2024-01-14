@@ -2,7 +2,6 @@
   import styles from './Tarefa.module.css';
   import { Button, IconButton } from '@mui/material';
   import DeleteIcon from '@mui/icons-material/Delete';
-  import DoneIcon from '@mui/icons-material/Done';
   import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
   import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
