@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     height: 150px;  
-    background-color: rgba(54, 0, 251, 0.962);
+    background-color: rgba(0, 0, 0, 0.771);
 }
 
 .header h1 {
@@ -13,8 +13,4 @@
     font-size: 32px;
     padding: 0 0 0 1%;
     --interval: 1s;
-    display: block;
-    text-shadow: 
-      0 0 10px rgb(255, 255, 255),
-      0 0 80px rgb(255, 0, 0);
-  }
+    display: block;}
